@@ -1,0 +1,47 @@
+Register:
+	input: unique_id, user_name, auth_key, device_id, master_password.
+	output: {status, message}
+login:
+	input: unique_id, master_password, device_id.
+	output: {status, message, auth_key}
+add:
+	input: unique_id, auth_key, device_id, url, user_name, password.
+	output: {status, message}
+search_user:
+	input: unique_id, url, auth_key, device_id
+	output: {status, message, [users]}.
+get_password:
+	input: unique_id, url, auth_key, user_name, device_id
+	output: {status, message, password}
+update_password:
+	input: unique_id, url, user_name, auth_key, device_id, password
+	output: {status, message}
+delete:
+	input: unique_id, device_id, auth_key, url, user_name
+	output: {status, message}
+share_access:
+	input: unique_id, device_id, auth_key
+	output: {status, message}
+get_access:
+	input: device_id
+	output: {status, message}
+revoke_access:
+	input: unique_id, device_id, auth_key
+	output: {status, message}
+revoke_access_specific:
+	input: unique_id, device_id, auth_key
+	output: {status, message}
+	
+	
+errorcodes:
+	100: successful
+	101: failed to register user.
+	102: Required All Parameters.
+	103: invalid user credentials
+	104: Please Try Again Later
+	105: User Already Exists
+	106: Database Got Compromised
+	107: Failed To Login
+	108: User Is Registered With Different Device.
+	109: Failed to update password
+	110: Couldnt Delete Password

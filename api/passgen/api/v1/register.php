@@ -23,7 +23,7 @@
 					$stmt->close();
 
 					if(mysqli_num_rows($result) > 0){
-						$message = array(false, 101, "User Already Exists");
+						$message = array(false, "User Already Exists");
 					}else{
 						$encrypted_auth = password_hash($authkey, PASSWORD_DEFAULT);
 						$encrypted_pass = password_hash($mpass, PASSWORD_DEFAULT);
